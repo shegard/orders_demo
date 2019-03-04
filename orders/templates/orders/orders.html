@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href={% static 'css/main.css' %}>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="{% static "js/moment.min.js" %}"></script>
+  <script src="{% static "js/moment-tz.min.js" %}"></script>
+</head>
+
+<body>
+<div class="holder">
+  <a href="/item/">Items Report</a>
+  <div class="queries_holder"></div>
+  <div class="filters_holder">
+    <label for="from_input">From </label><input id="from_input" type="datetime-local">
+    <label for="to_input">To </label><input id="to_input" type="datetime-local">
+    <button>filter</button>
+  </div>
+  <div class="table_holder">
+    <table id="orders_table">
+      <thead>
+        <tr><th>дата и время</th><th>номер заказа</th><th>сумма</th><th>товары</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+<script src={% static 'js/orders.js' %}></script>
+</body>
+
+</html>
