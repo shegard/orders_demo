@@ -79,7 +79,7 @@ class OrderListView(views.APIView):
             sql = "[%s] %s" % (query['time'], nice_sql)
             queries.append(sql)
 
-        return Response({'results': sorted(orders, key=lambda x: x['date'], reverse=True), 'queries': queries})
+        return Response({'results': sorted(orders, key=lambda x: x['date'], reverse=True)[:100], 'queries': queries})
 
 
 class OrderItemListView(views.APIView):
@@ -106,4 +106,4 @@ class OrderItemListView(views.APIView):
             sql = "[%s] %s" % (query['time'], nice_sql)
             queries.append(sql)
 
-        return Response({'results': items, 'queries': queries})
+        return Response({'results': items[:100], 'queries': queries})
